@@ -1,35 +1,23 @@
 import random
+number = random.randint(0,10)
 
-print("NUMBER GUESSING GAME")
-guesses = 7
-no_of_guesses = 0
+no_of_guess = 0
+while no_of_guess<5:
+    print("Enter Number b/w 0 and 10")
+    guess = int(input())
+    no_of_guess+=1
+    if (guess>0 and guess<10):
+        if(guess<number):
+            print("Low")
+        elif(guess>number):
+            print("High")
+        elif(guess==number):
+            break
 
-while True:
-    num = random.randrange(1,100)
-    while no_of_guesses<guesses:
-        player_guess = int(input("enter ur guess\t\t"))
-        try:
-            if player_guess < num:
-                if player_guess + 50 < num:
-                    print("Too Low")
-                    no_of_guesses+=1
-                else:
-                    print("Low")
-                    no_of_guesses+=1
-            elif player_guess > num:
-                if player_guess - 50 > num:
-                    print("Too High")
-                    no_of_guesses+=1
-                else:
-                    print("High")
-                    no_of_guesses+=1
-            else:
-                break
-        except ValueError:
-            print("Wrong Input") 
-            continue 
-        
-    if (player_guess==num):
-        print(f"CONGO CONGRATS. U GUESSED {num} NUMBER IN {no_of_guesses} GUESSES")  
     else:
-        print(f"Ur out of guesses. The number was {num}")
+        print("wrong input")
+
+if guess == number:
+    print(f"Congrats u guessed number {number} in {no_of_guess} guesses")
+else:
+    print(f"U failed. The Number was {number}") 
